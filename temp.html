@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0/dist/tf.min.js"></script>
+	<title>Shape Drawing Puzzle</title>
+</head>
+<body>
+	<h1>Shape Drawing Puzzle</h1>
+
+	<div class="puzzle">
+		<h4>Draw the Shape:</h4>
+		<p>Draw the shape according to the instructions given below:</p>
+		<p id="shapeInstructions"></p>
+		<canvas id="canvas" width="300" height="300" style="background-color: grey;"></canvas>
+		<p><button onclick="clearCanvas()">Clear Canvas</button></p>
+		<p><button onclick="detectShape()">Verify Shape</button></p>
+		<p id="shapeResult"></p>
+	</div>
+
+	<script src="detectShape.js"></script>
+</body>
+</html>
