@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verif R1: Arithmetic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    form {
+      display: inline-block;
+      margin-top: 20px;
+    }
+    input[type="number"] {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 0 5px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3e8e41;
+    }
+    p {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Arithmetic Challenge</h1>
+    <form onsubmit="return checkAnswer()">
+      <p>What is the answer to:</p>
+      <p id="problem"></p>
+      <input type="number" id="answer" required>
+      <button type="submit">Submit</button>
+      <p id="result"></p>
+    </form>
+  </div>
+  <script>
+    // Generate two random numbers between 1 and 10
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    // Choose a random operation: +, -, *, /
+    const ops = ["+", "-", "*", "/"];
+    const op = ops[Math.floor(Math.random() * ops.length)];
+    // Set the problem text
+    const problemEl = document.getElementById("problem");
+    problemEl.innerText = `${num1} ${op} ${num2} =`;
+    // Check the user's answer when the form is submitted
+    function checkAnswer() {
+      const answerEl = document.getElementById("answer");
+      const resultEl = document.getElementById("result");
+      const answer = parseFloat(answerEl.value);
+      const correctAnswer = Math.floor(eval(`${num1} ${op} ${num2}`));
+      console.log(correctAnswer)
+      if (answer == correctAnswer) {
+        resultEl.innerText = "Correct!";
+        // redirect to another page
+        window.location.href = "home.html";
+      } else {
+        resultEl.innerText = "Incorrect, please try again.";
+      }
+      // Prevent form submission
+      return false;
+    }
+  </script>
+</body>
+</html>
