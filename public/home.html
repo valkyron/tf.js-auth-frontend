@@ -65,6 +65,12 @@
         text-align: center;
       }
 
+      h2 {
+        font-weight: bold;
+        margin: 50px 0;
+        text-align: left;
+      }
+
       .image-container {
         display: flex;
         justify-content: center;
@@ -130,6 +136,36 @@
         is a network of infected computers or devices that can be controlled
         remotely to send traffic to a target server or network.
       </p>
+
+      <h2>
+        Tech Stack
+      </h2>
+      <ul>
+        <li>Databases: XAMPP, SQL</li>
+        <li>Frontend: Flask, react.js</li>
+        <li>Middleware: node.js</li>
+        <li>Backend: tf.js, express.js</li>
+      </ul>
+
+      <h2>
+        Procedure
+      </h2>
+      <p>
+        Our system consists of 2 tables namely, Legal MAC address table and Intruders MAC address table.
+        If a device’s MAC address is present in Intruders MAC address table, its connection is blocked.
+        If a device’s MAC address is not present in either of table, the MAC address is added to Legal MAC address table and connection is forwarded to the next authentication layer i.e. puzzle layer.
+        If a device’s MAC address is present in Legal MAC address table, it is checked how many times that device tried to access the website. If the count is found to be greater than 10 in last 5 minutes then the connection is blocked.        
+      </p>
+
+      <p>
+        User has to solve a “draw & shape” (instead of “dot and shape”) and “integer arithmetic” puzzle.
+        Draw & Shape: user has to draw on given canvas and the embedded json model (deployed using tfjs) will inference the same.
+        If the inference and asked shape is same (triangle/circle/square), user passes the puzzle.
+        Model is embedded in the server, rather than the end device’s local storage.
+        After verification, the user is redirected to “integer arithmetic layer”.
+        User has to solve a random arithmetic question, and if solved correctly, user is redirected to home page.         
+      </p>
+
     </main>
   </body>
 </html>
